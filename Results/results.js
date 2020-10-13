@@ -3,6 +3,6 @@
 
 const clearButton = document.querySelector('button');
 
-console.log(clearButton);
+// console.log(clearButton);
 
 

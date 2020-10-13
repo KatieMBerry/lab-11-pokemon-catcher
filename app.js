@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { pokeData } from './Data/poke-data';
+import { pokeData } from '../Data/poke-data.js';
 
 const encountered = document.querySelector('#encountered');
 const caught = document.querySelector('#caught');
@@ -33,4 +33,4 @@ while (pokeTwo.id === pokeThree.id) {
 while (pokeThree.id === pokeOne.id) {
     pokeTwo = getRandomPoke(pokeData);
 }
-console.log(pokeOne);
+// console.log(pokeOne);
