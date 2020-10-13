@@ -31,6 +31,10 @@ body {
 
 .hidden {
     display: none;
+    border: #FF0000 10px solid;
+    width: 50px;
+    height: 30px;
+    font-weight: bolder;
 }
 
 label > input {
@@ -103,9 +107,12 @@ header img {
 }
 
 #tracking {
-    height: 100px;
+    height: 150px;
     width: 930px;
-    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    display: flexbox;
+    justify-content: space-between;
     background-color: #3B4CCA;
     color: #FFDE00;
     font-weight: bolder;
