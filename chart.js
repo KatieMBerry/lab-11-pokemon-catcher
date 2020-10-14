@@ -25,13 +25,9 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Number of Encounters',
             data: encountered,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1
+            backgroundColor: '#FF0000',
+            borderColor: '#FFDE00',
+            borderWidth: 5
         }]
     },
     options: {
@@ -53,13 +49,9 @@ var myChart2 = new Chart(ctx, {
         datasets: [{
             label: 'Number of Captured',
             data: captured,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1
+            backgroundColor: '#3B4CCA',
+            borderColor: '#FFDE00',
+            borderWidth: 5
         }]
     },
     options: {

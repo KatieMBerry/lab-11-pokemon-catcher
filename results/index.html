@@ -19,7 +19,24 @@
     </header>
     <main>
         <section class="main-section">
-            <h2 id="results"></h2>
+            <h2 id="results">RESULTS FROM YOUR GAME</h2>
+            <table id="game-results">
+                <thead>
+                    <tr>
+                        <th>Pokemon</th>
+                        <th>Encountered</th>
+                        <th>Captured</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot class="totals">
+                    <tr>
+                        <td class="total unstyle" colspan="2">Totals: </td>
+                    </tr>
+                </tfoot>
+            </table>
             <span><button>Clear</button></span>
             <div class="chart-container graph-one" style="position: relative; height: 450px; width: 700px;">
                 <canvas id="myChart"></canvas>
