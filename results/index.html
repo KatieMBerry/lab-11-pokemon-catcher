@@ -21,15 +21,21 @@
     <main>
         <section class="main-section">
             <h2 id="results"></h2>
-            <span><button>Clear</button></span>    
-            <canvas id="myChart" width="400" height="400"></canvas>        
+            <span><button>Clear</button></span>
+            <div class="chart-container graph-one" style="position: relative; height: 450px; width: 700px;">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="chart-container graph-one" style="position: relative; height: 450px; width: 700px;">
+                <canvas id="myChart2"></canvas>
+            </div>
         </section>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
     </footer>
 
-    <script type="module" src="results.js"></script>
+    <script type="module" src="../chart.js"></script>
 </body>
 
 </html>

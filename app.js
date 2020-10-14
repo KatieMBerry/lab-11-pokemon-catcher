@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { pokeData } from '../data/poke-data.js';
+import { pokeData } from './data/poke-data.js';
 import { findByName, setInLocalStorage, POKES } from './utils.js';
 
 
