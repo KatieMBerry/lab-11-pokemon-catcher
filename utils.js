@@ -1,7 +1,9 @@
-export function findById(someArray, someId) {
+// export function refreshGame()
+
+export function findByName(someArray, someName) {
     for (let i = 0; i < someArray.length; i++) {
         const item = someArray[i];
-        if (item.id === someId) {
+        if (item.pokemon === someName) {
             return item;
         } 
     } 

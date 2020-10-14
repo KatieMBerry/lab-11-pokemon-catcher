@@ -89,9 +89,19 @@ footer {
 }
 
 
-h2 {
+.poke-name {
     font-size: 1.8rem;
     font-weight: bold;
+    justify-content: center;
+    background-color: #3B4CCA;
+    color: #FFDE00;
+    font-weight: bolder;
+}
+
+#encountered, #caught {
+    background-color: #3B4CCA;
+    color: #FFDE00;
+    font-weight: bolder;
 }
 
 .gutter-right {
@@ -106,7 +116,7 @@ header img {
     height: var(--header-height);
 }
 
-#tracking {
+#game-message {
     height: 150px;
     width: 930px;
     margin-top: 20px;
@@ -128,9 +138,11 @@ p {
 }
 
 .poke-1, .poke-2, .poke-3 {
+    height: 400px;
     width: 300px;
     float: left;
     margin: 10px;
+    font-weight: bolder;
     background-color: #FF0000;
 }
 
