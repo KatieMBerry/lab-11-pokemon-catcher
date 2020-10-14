@@ -1,16 +1,19 @@
 import { getFromLocalStorage, POKES } from './utils.js';
 
 const myArray = getFromLocalStorage(POKES);
+const onlyCaptures = myArray.filter((item) => {
+    return item.captured !== 0;
+})
 
-const pokeName = myArray.map((item) => {
+const pokeName = onlyCaptures.map((item) => {
     return item.name;
 });
 
-const encountered = myArray.map((item) => {
+const encountered = onlyCaptures.map((item) => {
     return item.encountered;
 });
 
-const captured = myArray.map((item => {
+const captured = onlyCaptures.map((item => {
     return item.captured;
 }));
 
