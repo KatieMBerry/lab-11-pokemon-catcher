@@ -1,6 +1,7 @@
 // import functions and grab DOM elements
 import { pokeData } from '../data/poke-data.js';
-import { findByName } from './utils.js';
+import { findByName, setInLocalStorage, POKES } from './utils.js';
+
 
 const headerNames = document.querySelectorAll('.poke-name');
 const playsDiv = document.querySelector('#plays');
@@ -72,18 +73,22 @@ for (let i = 0; i < radios.length; i++) {
             } else {
                 pokeItem.encountered++;
             }
+
+            // caughtDiv.textContent = `${pokeItem.captured.value}`;
+            // encounteredDiv.textContent = `${pokeItem.encountered}`;
         });
         //Captured:
         //identify the poke in the bag by name
         let capturedPoke = findByName(pokeBag, e.target.value);
         capturedPoke.captured++;
-        console.log(pokeBag);
+        // console.log(capturedPoke);
 
         // console.log(e.target.value); will return the name of the pokemon clicked
         const captured = e.target.value;
 
-        // caughtDiv.textContent = `${caughtCounter}`;
-        // encounteredDiv.textContent = `${encounterCounter}`;
+        setInLocalStorage(POKES, pokeBag);
+        console.log(setInLocalStorage);
+
         trackingDiv.textContent = `You caught a ${capturedPoke.name}!`;
         playsDiv.textContent = `Plays: ${playsCounter}`;
         setUpGame();
