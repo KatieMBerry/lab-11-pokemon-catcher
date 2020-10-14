@@ -37,6 +37,11 @@ body {
     font-weight: bolder;
 }
 
+canvas {
+    width: 75%;
+    height: 500px;
+  }
+
 label > input {
     display: none;
 }
