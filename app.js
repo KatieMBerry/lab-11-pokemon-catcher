@@ -1,7 +1,6 @@
 // import functions and grab DOM elements
-import { pokeData } from './data/poke-data.js';
+import { pokeData } from '../data/poke-data.js';
 import { findByName } from './utils.js';
-// import { findByName, refreshGame } from '../utilsjs';
 
 const headerNames = document.querySelectorAll('.poke-name');
 const playsDiv = document.querySelector('#plays');
@@ -11,16 +10,11 @@ const caughtDiv = document.querySelectorAll('#caught');
 const images = document.querySelectorAll('label > img');
 //This makes an array of 3 inputs and we'll need to inject values later
 const radios = document.querySelectorAll('input');
-// const nextButton = document.querySelector('next-button');
+
 
 // initialize state
 let playsCounter = 0;
-let caughtCounter = 0;
-let encounterCounter = 0;
 const pokeBag = [];
-
-// refreshGame(pokeBag);
-// const captured = document.querySelector(':checked');
 
 // go grab three random pokes
 function getRandomPoke(someArray) {
@@ -30,20 +24,13 @@ function getRandomPoke(someArray) {
 
 function setUpGame() {
     //call the random poke function
-    let pokeOne = getRandomPoke(pokeData); 
+    let pokeOne = getRandomPoke(pokeData);
     let pokeTwo = getRandomPoke(pokeData);
     let pokeThree = getRandomPoke(pokeData);
-    // console.log(pokeOne, pokeTwo, pokeThree);
+
     // now, in the event that they are the same, keep trying until they are not:
-    while (pokeOne.pokemon === pokeTwo.pokemon) {
+    while (pokeOne.pokemon === pokeTwo.pokemon || pokeTwo.pokemon === pokeThree.pokemon || pokeThree.pokemon === pokeOne.pokemon) {
         pokeOne = getRandomPoke(pokeData);
-    }
-
-    while (pokeTwo.pokemon === pokeThree.pokemon) {
-        pokeTwo = getRandomPoke(pokeData);
-    }
-
-    while (pokeThree.pokemon === pokeOne.pokemon) {
         pokeTwo = getRandomPoke(pokeData);
     }
 
@@ -51,7 +38,7 @@ function setUpGame() {
     radios[0].value = pokeOne.pokemon;
     images[0].src = pokeOne.url_image;
     headerNames[0].textContent = pokeOne.pokemon;
-    
+
 
     radios[1].value = pokeTwo.pokemon;
     images[1].src = pokeTwo.url_image;
@@ -61,73 +48,43 @@ function setUpGame() {
     images[2].src = pokeThree.url_image;
     headerNames[2].textContent = pokeThree.pokemon;
 
-    //to do: increment three encountered, 
-    //go into data model to find each by id
-    //if they are in this array, increment the encountered, 
-    //if not push new object into data model
-    
-    encounterCounter++;
-
 }
 setUpGame();
 
-//Show nextButton on click of image:
-// function handleClick() {
-//     nextButton.classList.toggle('hidden');
-
-//     //disable the images:
-//     for (let i = 0; i < radios.length; i++) {
-//         radios[i].disabled = true;
-//         images[i].style.opacity = .5;
-//     }
-// }
-
-// function addNewEncounter(someArray, someName) {
-//     const result = findByName(pokeData, someName);
-//     const capturedPoke = {
-//         pokemon: result.pokemon, 
-//         encountered: 0,
-//         captured: 0
-//     };
-//     someArray.push(capturedPoke);
-// }
-
-// function incrementCaptured(someArray, someName) {
-//     let result = findByName(someArray, someName);
-//     if (!result) {
-//         addNewEncounter(someArray, someName);
-//         result = findByName(someArray, someName);
-//     } 
-//     result.captured++;
-// }
-
-// function incrementEncountered(someArray, someName) {
-//     let result = findByName(someArray, someName);
-//     if (!result) {
-//         addNewEncounter(someArray, someName);
-//         result = findByName(someArray, someName);
-//     } 
-//     result.encountered++;
-// }
-
 //set event listeners to update state & dom; each radio needs an event listener
 for (let i = 0; i < radios.length; i++) {
-    radios[i].addEventListener('change', (e) => {
-        // e.preventDefault();
-
+    radios[i].addEventListener('click', (e) => {
         playsCounter++;
-        caughtCounter++;
-        
+        //Encountered:
+        //loop thru the radios to get their name
+        //see if they exist in pokebag, if they exist, increment...if not initialize one
+        radios.forEach((radio) => {
+            let pokeItem = findByName(pokeBag, radio.value);
+            if (!pokeItem) {
+                pokeItem = {
+                    name: radio.value,
+                    encountered: 1,
+                    captured: 0
+                }
+                //for new item, push the new object into pokebag
+                pokeBag.push(pokeItem);
+                //see if they exist in pokebag, if they exist, increment
+            } else {
+                pokeItem.encountered++;
+            }
+        });
+        //Captured:
+        //identify the poke in the bag by name
+        let capturedPoke = findByName(pokeBag, e.target.value);
+        capturedPoke.captured++;
+        console.log(pokeBag);
+
         // console.log(e.target.value); will return the name of the pokemon clicked
         const captured = e.target.value;
-        // incrementCaptured(pokeBag, captured);
-        // incrementEncountered(pokeBag, encountered);
-        
-        // console.log(pokeBag);
 
-        caughtDiv.textContent = `${caughtCounter}`;
-        encounteredDiv.textContent = `${encounterCounter}`;
-        trackingDiv.textContent = `You caught a ${captured}!`;
+        // caughtDiv.textContent = `${caughtCounter}`;
+        // encounteredDiv.textContent = `${encounterCounter}`;
+        trackingDiv.textContent = `You caught a ${capturedPoke.name}!`;
         playsDiv.textContent = `Plays: ${playsCounter}`;
         setUpGame();
         if (playsCounter > 10) {

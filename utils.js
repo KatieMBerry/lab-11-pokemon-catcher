@@ -3,7 +3,7 @@
 export function findByName(someArray, someName) {
     for (let i = 0; i < someArray.length; i++) {
         const item = someArray[i];
-        if (item.pokemon === someName) {
+        if (item.name === someName) {
             return item;
         } 
     } 
