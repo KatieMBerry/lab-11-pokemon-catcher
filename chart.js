@@ -3,7 +3,7 @@ import { getFromLocalStorage, POKES } from './utils.js';
 const myArray = getFromLocalStorage(POKES);
 
 const pokeName = myArray.map((item) => {
-    return item.pokeName;
+    return item.name;
 });
 
 const encountered = myArray.map((item) => {
