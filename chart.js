@@ -17,6 +17,30 @@ const captured = onlyCaptures.map((item => {
     return item.captured;
 }));
 
+export function renderPokeTable(pokeItem) {
+    const tr = document.createElement('tr');
+    const tdName = document.createElement('td');
+    const tdEncounters = document.createElement('td');
+    const tdCaptures = document.createElement('td');
+
+    tdName.textContent = pokeItem.name;
+    tdEncounters.textContent = pokeItem.encountered;
+    tdCaptures.textContent = pokeItem.captured;
+
+    tr.append(tdName, tdEncounters, tdCaptures);
+    return tr;
+}
+
+const table = document.querySelector('tbody');
+
+for (let i = 0; i < myArray.length; i++) {
+    const pokeCartItem = myArray[i];
+    const tr = renderPokeTable(pokeCartItem);
+
+    table.appendChild(tr);
+}
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -25,13 +49,9 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Number of Encounters',
             data: encountered,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1
+            backgroundColor: '#FF0000',
+            borderColor: '#3B4CCA',
+            borderWidth: 5
         }]
     },
     options: {
@@ -53,13 +73,9 @@ var myChart2 = new Chart(ctx, {
         datasets: [{
             label: 'Number of Captured',
             data: captured,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1
+            backgroundColor: '#3B4CCA',
+            borderColor: '#FF0000',
+            borderWidth: 5
         }]
     },
     options: {
@@ -72,3 +88,6 @@ var myChart2 = new Chart(ctx, {
         }
     }
 });
+
+
+

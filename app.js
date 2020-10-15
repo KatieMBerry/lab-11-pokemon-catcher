@@ -74,8 +74,6 @@ for (let i = 0; i < radios.length; i++) {
                 pokeItem.encountered++;
             }
 
-            // caughtDiv.textContent = `${pokeItem.captured.value}`;
-            // encounteredDiv.textContent = `${pokeItem.encountered}`;
         });
         //Captured:
         //identify the poke in the bag by name
@@ -87,7 +85,7 @@ for (let i = 0; i < radios.length; i++) {
         const captured = e.target.value;
 
         setInLocalStorage(POKES, pokeBag);
-        console.log(setInLocalStorage);
+        // console.log(setInLocalStorage);
 
         trackingDiv.textContent = `You caught a ${capturedPoke.name}!`;
         playsDiv.textContent = `Plays: ${playsCounter}`;

@@ -1,7 +1,10 @@
+import { getFromLocalStorage } from '../utils.js';
 
-const resultH2 = document.querySelector('#results');
-const clearButton = document.querySelector('button');
-
-// console.log(clearButton, resultH2);
+const localStoragePoke = getFromLocalStorage();
+const clearGameButton = document.querySelector('button');
 
 
+clearGameButton.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.href = '../index.html';
+});
