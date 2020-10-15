@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Titillium Web', sans-serif; 
+    /* background-image: url('../assets/poke-2.PNG'); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: #FFDE00;
+    opacity: 1;
+}
+
+h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: cursive;
+    font-size: 20px;
+    color: #3B4CCA;
+}
+
+table {
+    border: solid 1px;
+    width: 100%;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+td, th {
+    border: solid 1px;
+    justify-content: center;
+    align-content: center;
+}
+
+th {
+    background-color: #3B4CCA;
+    color: #FFDE00;
+}
+
+button {
+    background-color: #3B4CCA;
+    color: #FFDE00;
+    height: 35px;
+    width: 200px;
+    font-family: cursive;
+    font-size: 20px;
+}

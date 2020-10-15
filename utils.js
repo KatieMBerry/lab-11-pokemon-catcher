@@ -1,7 +1,6 @@
-// export function refreshGame()
 
 export const POKES = 'POKES';
-
+export const POKEMON = 'POKEMON';
 
 export function findByName(someArray, someName) {
     for (let i = 0; i < someArray.length; i++) {
@@ -12,8 +11,8 @@ export function findByName(someArray, someName) {
     }
 }
 
-export function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
+export function getFromLocalStorage(POKES) {
+    const item = localStorage.getItem(POKES);
     return JSON.parse(item);
 }
 
